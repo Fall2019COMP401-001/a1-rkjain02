@@ -19,13 +19,17 @@ public class A1Novice {
 			String lastName = scan.next();
 			int numberOfItems = scan.nextInt();
 			for(int j =0; j<numberOfItems; j++) {
-				int quantityOfItem = scan.nextInt();
+				double quantityOfItem = (double) scan.nextInt();
 				String nameOfItem = scan.next();
 				double priceOfItem = scan.nextDouble();
 				sum += quantityOfItem * priceOfItem;
+				
 			}
 			
-			System.out.println(firstName.charAt(0) + ". " + lastName + ": " + sum);
+			if(i !=2) {
+				System.out.println();
+			}
+			System.out.print(firstName.charAt(0) + ". " + lastName + ": " + String.format("%.2f", sum));
 	
 		}
 	}
