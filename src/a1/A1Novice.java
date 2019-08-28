@@ -26,10 +26,7 @@ public class A1Novice {
 				
 			}
 			
-			if(i !=2) {
-				System.out.println();
-			}
-			System.out.print(firstName.charAt(0) + ". " + lastName + ": " + String.format("%.2f", sum));
+			System.out.println(firstName.charAt(0) + ". " + lastName + ": " + String.format("%.2f", sum));
 	
 		}
 	}
