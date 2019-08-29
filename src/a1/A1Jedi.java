@@ -17,12 +17,16 @@ public class A1Jedi {
 			prices[i] = scan.nextDouble();
 		}
 		int customers = scan.nextInt();
-		int number[] = new int[count];
 		int total[] = new int[count];
+		int numbers[][]= new int[count][customers];
+		int totalNumbers[] = new int[count];
 		for(int i=0; i<count; i++) {
-			number[i]=0;
 			total[i]=0;
+			for(int j =0; j<customers; j++) {
+				numbers[i][j]=0;
+			}
 		}
+	
 		for(int j=0; j<customers; j++) {
 			String firstName = scan.next();
 			String lastName = scan.next();
@@ -31,16 +35,24 @@ public class A1Jedi {
 				int quantityOfItem = scan.nextInt();
 				String item = scan.next();
 				total[indexOfItem(items, item)] += quantityOfItem;
-				number[indexOfItem(items, item)]++;
+				if(numbers[indexOfItem(items, item)][j] == 0) {
+					numbers[indexOfItem(items,item)][j]=1;
+				}
+			}	
+		}
+		for(int i=0; i<count; i++) {
+			for(int j=0; j<customers; j++) {
+				totalNumbers[i] += numbers[i][j];
 			}
 		}
 		
+		
 		for(int i=0; i<count; i++) {
-			if(number[i] == 0) {
+			if(totalNumbers[i] == 0) {
 				System.out.println("No customers bought " + items[i]);
 			}
 			else {
-				System.out.println(number[i] + " customers bought " + total[i] + " " + items[i]);
+				System.out.println(totalNumbers[i] + " customers bought " + total[i] + " " + items[i]);
 			}
 		}
 }
